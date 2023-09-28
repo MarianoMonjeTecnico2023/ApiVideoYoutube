@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproductor de Video</title>
+    <link rel="stylesheet" href="css/reproductor.css">
+</head>
+<body>
+    <h1>Reproductor de Video</h1>
+    <div id="videoPlayer"></div>
+
+    <script>
+        // Obtiene el videoId y el título del video de la URL
+        const params = new URLSearchParams(window.location.search);
+        const videoId = params.get('videoId');
+        const videoTitle = params.get('videoTitle');
+
+        // Crea un reproductor de video en la página
+        const videoPlayer = document.getElementById('videoPlayer');
+        videoPlayer.innerHTML = `
+            <h2>${videoTitle}</h2>
+            <iframe src="https://www.youtube.com/embed/${videoId}" allowfullscreen></iframe>
+        `;
+    </script>
+</body>
+</html>
